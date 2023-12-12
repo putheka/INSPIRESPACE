@@ -1,0 +1,58 @@
+/* Header Section */
+.intro {
+    display: table;
+    width: 100%;
+    padding: 0;
+    background: url(../img/intro-bg.jpg) center center no-repeat;
+    background-color: #e5e5e5;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+  
+  .intro .overlay {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .intro h1 {
+    font-family: "Raleway", sans-serif;
+    color: #fff;
+    font-size: 82px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .intro h1 span {
+    font-weight: 800;
+    color: #7ca330;
+  }
+  
+  .intro p {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    text-align: center; /* Center-align the text */
+  }
+  
+  header .intro-text {
+    padding-top: 350px;
+    padding-bottom: 200px;
+    text-align: center;
+  }
+  
+  /* Additional Styles to Center Child Elements */
+  .container {
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  

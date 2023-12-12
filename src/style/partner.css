@@ -1,0 +1,25 @@
+#features {
+    background: #f6f6f6;
+    height: 50vh;
+  }
+  #features h2{
+    margin-top: 0px;
+    text-align: center;
+
+  }
+  #features img{
+    width: 100px;
+    height: 50px;
+  }
+  
+  #features.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #features.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 20px;
+  }

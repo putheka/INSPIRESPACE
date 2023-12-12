@@ -1,0 +1,67 @@
+
+/* About Section */
+#about {
+    padding: 100px 0;
+  }
+  #about h3 {
+    font-size: 22px;
+    margin: 0 0 20px;
+  }
+  #about h2 {
+    position: relative;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  #about h2::after {
+    position: absolute;
+    content: "";
+    background-color:#7ca330;
+    height: 4px;
+    width: 60px;
+    bottom: 0;
+    left: 45%;
+  }
+  #about .about-text li {
+    margin-bottom: 6px;
+    margin-left: 6px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    
+  }
+  #about .about-text li:before {
+    content: "\f00c";
+    font-family: "FontAwesome";
+    color: #7ca330;
+    font-size: 11px;
+    font-weight: 300;
+    padding-right: 8px;
+    
+  }
+  #about img {
+    width: 520px;
+    margin-top: 10px;
+    background: #fff;
+    border-right: 0;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
+  }
+  #about p {
+    line-height: 24px;
+    margin: 30px 0;
+  }
+  #about .img-responsive{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  }
+  #about .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #about .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  

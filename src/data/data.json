@@ -1,0 +1,181 @@
+{
+    "Header": {
+      "title": "Make Your Comfort Is Our Happiness",
+      "paragraph": "Welcome to FURNITURE, where joy meets design. Elevate your space with our curated furniture collection, crafted to bring happiness and style into your home."
+    },
+    "About": {
+      "paragraph": "At INSPIRE SPACE, we are passionate about transforming houses into homes. Our journey began with a simple belief – that well-crafted furniture has the power to enhance the quality of life. With an unwavering commitment to craftsmanship and design, we curate collections that not only reflect timeless elegance but also encapsulate the unique stories of those who make a house a home. Join us in creating spaces that inspire, comfort, and tell your story. Welcome to a world where furniture isn't just functional, it's an expression of living well..",
+      "Why": [
+        "Craftsmanship Excellence",
+        "Timeless Design",
+        "Customization Options",
+        "Quality Materials"
+      ],
+      "Why2": [
+        "Exceptional Comfort",
+        "Affordable Luxury",
+        "Dedicated Customer Service",
+        "Sustainability Commitment"
+      ]
+    },
+    "Gallery": [
+      {
+        "title": "Sofas",
+        
+        "Image": "https://img.edilportale.com/product-thumbs/h_Moroso_LOVELAND_jgScJnXjZB.jpeg "
+      },
+      {
+        "title": "Armchairs ",
+        
+        "Image": "https://img.edilportale.com/product-thumbs/h_Moroso_MR-LOVESEAT_uFkFWLxAF.jpeg"
+      },
+      {
+        "title": "Small sofas",
+        "Image": "https://img.edilportale.com/product-thumbs/h_Poltrona-Frau_THE-COLLECTION---SOFA-AND-ARMCHAIRS_nXYSUaC1Dt.jpeg"
+      },
+      {
+        "title": "Day beds",
+        "Image": "https://img.edilportale.com/product-thumbs/h_day-bed-flexform-554816-reled24d5e.jpg"
+      },
+      {
+        "title": "Small sofas",
+        "Image": "https://img.edilportale.com/product-thumbs/h_Poltrona-Frau_THE-COLLECTION---SOFA-AND-ARMCHAIRS_nXYSUaC1Dt.jpeg"
+      },
+      {
+        "title": "Poufs",
+        "Image": "https://img.edilportale.com/product-thumbs/h_adagio-pouf-wittmann-636780-rel2bc8aa7.jpg"
+      },
+      {
+        "title": "Footstools",
+        "Image": "https://img.edilportale.com/product-thumbs/h_footstool-minotti-599721-relf87f035e.jpg"
+      },
+      {
+        "title": "Sitting Ball",
+        "Image": "https://img.edilportale.com/product-thumbs/h_APOLLO-GIORGETTI-337011-relfad2b595.jpg"
+      },
+      {
+        "title": "Kids sofas and armchairs",
+        "Image": "https://img.edilportale.com/product-thumbs/h_piedras-small-sofa-magis-22764-rel89c52c6f.jpg"
+      }
+    ],
+    "Services": [
+      {
+        "icon": "fa fa-pencil",
+        "name": "Custom Furniture Design",
+        "text": "Tailor your living spaces with our bespoke furniture design service. Collaborate with our skilled craftsmen to bring your vision to life, creating unique pieces that perfectly fit your style and needs."
+      },
+      {
+        "icon": "fa fa-home",
+        "name": "Interior Styling Consultation",
+        "text": " Elevate your home with our expert interior styling consultation. Our design team will work closely with you to transform your spaces, offering personalized solutions that harmonize aesthetics and functionality."
+      },
+      {
+        "icon": "fa fa-truck",
+        "name": "Express Delivery and Assembly",
+        "text": "Enjoy hassle-free shopping with our express delivery and assembly service. Receive your new furniture promptly and let our professional team assemble it, ensuring a seamless and stress-free experience."
+      },
+      {
+        "icon": "fa fa-shield",
+        "name": "Lifetime Quality Guarantee",
+        "text": "Trust in the longevity of our products with our lifetime quality guarantee. We stand behind the craftsmanship of our furniture, offering peace of mind and assurance that your investment will endure the test of time."
+      },
+      {
+        "icon": "fa fa-eye",
+        "name": "Virtual Room Visualization",
+        "text": " Experience the future of furniture shopping with our virtual room visualization service. Preview how our pieces will look in your space before making a decision, allowing you to confidently design your home online."
+      },
+      {
+        "icon": "fa fa-leaf ",
+        "name": "Sustainable Living Solutions",
+        "text": "Join us in promoting sustainable living with our eco-friendly furniture options. Choose from our range of responsibly sourced materials and contribute to a greener future without compromising on style and comfort."
+      }
+    ],
+    "Comment": [
+      {
+        "img": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
+        "text": "Incredible service and attention to detail! InspireSpace turned our house into a dream home. Every piece reflects quality craftsmanship and timeless design. Highly recommended!",
+        "name": "John Doe"
+      },
+      {
+        "img": "https://img.freepik.com/free-psd/3d-illustration-bald-person-with-glasses_23-2149436184.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
+        "text": "InspireSpace exceeded our expectations. From personalized consultations to prompt delivery, their team made the furniture selection process a joy. Our home is now a true reflection of our style",
+        "name": "Johnathan Doe"
+      },
+      {
+        "img": "https://img.freepik.com/free-psd/3d-illustration-person_23-2149436182.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
+        "text": "Impressed with the level of customization offered by InspireSpace. They brought our vision to life, creating furniture that perfectly fits our space. The quality is unmatched, and we couldn't be happier.",
+        "name": "John Doe"
+      },
+      {
+        "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-pink-hair_23-2149436186.jpg?size=626&ext=jpg",
+        "text": "Exceptional service from start to finish. The team at InspireSpace ensured that every detail was considered. Our living room is now a cozy haven thanks to their thoughtfully curated pieces.",
+        "name": "Johnathan Doe"
+      },
+      {
+        
+        "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg",
+        "text": "InspireSpace is our go-to for stylish and sustainable furniture. Their commitment to eco-friendly materials aligns with our values, and the results are stunning. Our home feels both chic and environmentally conscious.",
+        "name": "John Doe"
+      },
+      {
+        "img": "https://img.freepik.com/free-psd/3d-rendering-boy-avatar-emoji_23-2150603406.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
+        "text": "Transformative experience! InspireSpace not only delivered quality furniture but also helped us visualize our room with their virtual tool. It made the decision process a breeze, and our home looks fantastic.",
+        "name": "Johnathan Doe"
+      }
+    ],
+    "Team": [
+      {
+        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833560.jpg?size=626&ext=jpg",
+        "name": "John Doe",
+        "job": "Director"
+      },
+      {
+        "img": "https://img.freepik.com/free-psd/3d-render-avatar-character_23-2150611731.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
+        "name": "Mike Doe",
+        "job": "Senior Designer"
+      },
+      {
+        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833572.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
+        "name": "Jane Doe",
+        "job": "Senior Designer"
+      },
+      {
+        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833554.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
+        "name": "Karen Doe",
+        "job": "Project Manager"
+      }
+    ],
+    "Contact": {
+      "address": "Street 28 Phnom Penh,Cambodia, PostCode 120101 ",
+      "phone": "+855 16 818 206",
+      "email": "chhonputheka@gmail.com  ",
+      "facebook": "fb.com",
+      "twitter": "twitter.com",
+      "youtube": "youtube.com"
+    },
+    "Partner": [
+      {
+        "img": "https://imgs.search.brave.com/HSXiRCQvZWUmAZHYBh9jq5GAfhZIqUk_Sk80irToBjQ/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODBiNTdmY2Q5OTk2/ZTI0YmM0M2M1MWYu/cG5n",
+        "title": "Global Innovation Partner",
+        "text": "Proud to collaborate with Google, a leader in cutting-edge technology and innovation. Together, we strive to create modern and intelligent living spaces."
+      },
+      {
+        "img": "https://imgs.search.brave.com/n3sLYiMh3B3K2yWETMHO_QUUmaDnDfidiPyu03vr5q8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODBiNTdmY2Q5OTk2/ZTI0YmM0M2M1Mjku/cG5n",
+        "title": "Entertainment Excellence",
+        "text": "Partnering with Netflix to bring the ultimate cinematic experience into your home. Enjoy unparalleled comfort and style while indulging in your favorite shows and movies."
+      },
+      {
+        "img": "https://imgs.search.brave.com/phRt8N4IhTmUqYBbygEGB0j72yuLqw4Jnk_btTdddTU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIxLzEx/L2xvZ28tU3RhcmJ1/Y2tzLTUwMHgyODEu/cG5n",
+        "title": "Coffeehouse Collaboration",
+        "text": "Sip in style with our Starbucks collaboration. Elevate your coffee moments at home with furniture that complements the warmth and inviting ambiance of your favorite coffeehouse."
+      },
+      {
+        "img": "https://imgs.search.brave.com/1F4mcQoQOOt3AVDlDIcSzjZnNS8Ikp6AK-pXtAnQ0sI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mcmVl/bG9nb3BuZy5jb20v/aW1hZ2VzL2FsbF9p/bWcvMTY4NjM5MDc0/N3Rlc2xhLWxvZ28t/dHJhbnNwYXJlbnQu/cG5n",
+        "title": "Driving Design Forward",
+        "text": "Accelerate your living spaces with our Tesla partnership. Inspired by the innovation of electric mobility, our furniture reflects the sleek design and forward-thinking ethos of Tesla."
+      }
+    ]
+  
+  }
+  
+  
