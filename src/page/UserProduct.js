@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import ReactPaginate from 'react-paginate';
+import { Link } from 'react-router-dom';
 import BASE_URL from "../BASE_URL";
-import ProductCard from '../component/ProductCards';
+import ProductCard from "../component/ProductCards"
 import "../style/UserProduct.css"; 
 
 const UserProduct = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [data, setData] = useState([]);
 
-  const PER_PAGE = 3;
+  const PER_PAGE = 6;
   const offset = currentPage * PER_PAGE;
   const currentPageData = data.slice(offset, offset + PER_PAGE);
   const pageCount = Math.ceil(data.length / PER_PAGE);
@@ -37,13 +38,12 @@ const UserProduct = () => {
           {currentPageData.map(product =>
             <div className='col-md-4 py-3' key={product.id}>
               <ProductCard
-                image={product.image}
+                images={product.images}
                 title={product.title}
                 price={product.price}
                 id={product.id}
                 description={product.description}
-              >
-              </ProductCard>
+              />
             </div>
           )}
         </div>

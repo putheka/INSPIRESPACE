@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import BASE_URL from '../BASE_URL'
-import ProductCard from '../component/ProductCards'
+// import ProductCard from '../component/ProductCards'
 import TableItem from '../component/TableItem'
 
 
@@ -53,7 +53,7 @@ const Products = () =>
           <TableItem
             key={product.id}
             id={product.id}
-            image={product.image}
+            images={product.images}
             title={product.title}
             price={product.price}
             description={product.description}
