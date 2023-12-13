@@ -7,7 +7,7 @@ function NavBar() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home">EarthDX</Navbar.Brand>
+                <Navbar.Brand href="#home">INSPIRESPACE</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto text-center">
@@ -24,8 +24,7 @@ function NavBar() {
 
                     </Nav>
                     <div className="d-flex justify-content-center">
-                        <button className='btn btn-warning me-3'> Sign Up</button>
-                        <button className='btn btn-success'> Login </button>
+                        <button className='btn btn-success '> Login </button>
                     </div>
                 </Navbar.Collapse>
             </Container>
