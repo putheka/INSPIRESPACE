@@ -10,7 +10,6 @@ const UserProduct = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Corrected function name
-
   const PER_PAGE = 6;
   const offset = currentPage * PER_PAGE;
   const currentPageData = data.slice(offset, offset + PER_PAGE);
@@ -50,14 +49,21 @@ const UserProduct = () => {
     <>
       <h1 className="text-center my-5">INSPIRESPACE PRODUCT</h1>
       <div className="container">
-        <div className="row">
+      <div className="row">
           {isLoading ? (
             <>
               {placeholderCards(6)}
             </>
           ) : (
-            <>
-              {currentPageData.map(product => (
+            currentPageData.length === 0 ? (
+              <>
+              <img src="https://img.freepik.com/premium-photo/blue-folder-with-red-stop-sign-isolated-white_226262-195.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais" 
+              style={{ height: "40vh",  width:"40vh"}}
+              />
+              <h1>There is no product to show</h1>
+              </>
+            ) : (
+              currentPageData.map(product => (
                 <div className='col-md-4 py-3' key={product.id}>
                   <ProductCard
                     images={product.images}
@@ -67,12 +73,14 @@ const UserProduct = () => {
                     description={product.description}
                   />
                 </div>
-              ))}
-            </>
+              ))
+            )
           )}
         </div>
       </div>
 
+
+      {data.length > PER_PAGE && (
       <div className="pagination-container">
         <ReactPaginate
           previousLabel={"previous"}
@@ -86,6 +94,7 @@ const UserProduct = () => {
           activeClassName={"active"}
         />
       </div>
+      )}
     </>
   );
 };

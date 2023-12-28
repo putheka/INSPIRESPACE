@@ -9,6 +9,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
   const getProduct = async () => {
     fetch(`${BASE_URL}/${id}`)
       .then((res) => res.json())
@@ -31,15 +32,18 @@ const ProductDetails = () => {
             <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
             Loading...
           </button>
+
         </div>
       ) : (
         <div className="container">
           <div className="row my-5">
             <div className="col-md-6 text-center">
-              <img src={product.images} className='h-575 w-75' alt='product' />
+              <img src={product.images} className='h-575 w-75' alt='product' 
+                   onError={(e) => { e.target.src = "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais" }}
+              />
             </div>
             <div className="col-md-6">
-              <h2>{product.title}</h2>
+              <h2 className="text-success">{product.title}</h2>
               <p className="text-wrap">
                 {product.description}
               </p>

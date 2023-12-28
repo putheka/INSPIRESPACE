@@ -15,7 +15,8 @@ const Products = () =>
   {
     const res = await axios.get(BASE_URL)
     const data = res.data
-    setProducts(data)
+    let filteredProduct = data.filter((p) => p.category.name.toLowerCase() === "furniture")
+    setProducts(filteredProduct)
     setLoading(false)
   }
 
@@ -29,11 +30,14 @@ const Products = () =>
 
   console.log(products)
   return <>
-    {loading && <div className="text-center">
-      <div class="spinner-border text-secondary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
+    {loading &&
+    <div className="d-flex justify-content-center align-items-center" style={{ height: "49vh" }}>
+    <button className="btn btn-success" type="button" disabled>
+      <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+      Loading...
+    </button>
+
+  </div>
     }
 
     {!loading && 
@@ -41,7 +45,7 @@ const Products = () =>
       <table className="table table-hover table-dark mt-5">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">ID</th>
           <th scope="col">Product Image</th>
           <th scope="col">Title</th>
           <th scope="col" className='d-none d-md-block'>Description</th>

@@ -15,6 +15,7 @@ import UserProduct  from "./page/UserProduct";
 import ProductDetails from "./page/ProductDetails";
 import Services from "./page/service";
 import JsonData from "./data/data.json";
+import NotFoundpage from "./page/NotFoundpage";
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
   useEffect(() => {
@@ -29,7 +30,8 @@ const App = () => {
         <Route path="/" element={<HomePage landingPageData={landingPageData} />} />
         <Route path="/products" element={<Products/>}/>
         <Route path="/UserProduct" element={<UserProduct/>}/>
-        <Route path="/product-details/:id" element={<ProductDetails/>}/>"
+        <Route path="/product-details/:id" element={<ProductDetails/>}/>
+        <Route path="*" element={<NotFoundpage/>} />
         </Routes>
         <Footer />
       </BRouter>
