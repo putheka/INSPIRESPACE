@@ -16,6 +16,7 @@ import ProductDetails from "./page/ProductDetails";
 import Services from "./page/service";
 import JsonData from "./data/data.json";
 import NotFoundpage from "./page/NotFoundpage";
+import ProductDashBoard from "./component/ProductDashBoard";
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
   useEffect(() => {
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/products" element={<Products/>}/>
         <Route path="/UserProduct" element={<UserProduct/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
+        <Route path="/productDash" element={<ProductDashBoard/>}/>
         <Route path="*" element={<NotFoundpage/>} />
         </Routes>
         <Footer />
