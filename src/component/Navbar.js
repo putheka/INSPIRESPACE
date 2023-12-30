@@ -18,8 +18,11 @@ function NavBar() {
                         <NavLink className={"nav-link"} to="/UserProduct">
                             Products
                         </NavLink>
-                        <NavLink className={"nav-link"} to="/products">
+                        {/* <NavLink className={"nav-link"} to="/products">
                             Product Dashboard
+                        </NavLink> */}
+                        <NavLink className={"nav-link"} to="/productDash">
+                            DashBord 
                         </NavLink>
 
                     </Nav>
