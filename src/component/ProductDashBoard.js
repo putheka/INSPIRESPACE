@@ -10,6 +10,7 @@ const ProductDashBoard = () => {
   const [loading, setLoading] = useState(true);
   const [filteredText, setFilteredText] = useState('');
   const [showAddProductModal, setShowAddProductModal] = useState(false);
+  const [SelectedProduct, setSelectedProduct] = useState([])
 
   const columns = [
     {
@@ -62,6 +63,9 @@ const ProductDashBoard = () => {
     product.title.toLowerCase().includes(filteredText.toLowerCase())
   );
 
+  const RowclickHandler = (row) => {
+        setSelectedProduct(row);
+  }
   return (
     <>
       {loading && (
@@ -77,7 +81,9 @@ const ProductDashBoard = () => {
         <div className='container mt-5'>
           <div className='d-flex justify-content-between'>
             <div className='col-3 mx-auto mt-1'>
-              {filteredProducts.length > 0 && <PreviewCardInfo product={filteredProducts[0]} />}
+              {/* {filteredProducts.length > 0 && <PreviewCardInfo product={filteredProducts[0]} />} 
+              */}
+              <PreviewCardInfo product={SelectedProduct} />
             </div>
             <div className='data-table col-8'>
               <DataTable
@@ -110,6 +116,7 @@ const ProductDashBoard = () => {
                   </div>
                 }
                 data={filteredProducts}
+                onRowClicked={RowclickHandler}
               />
             </div>
           </div>

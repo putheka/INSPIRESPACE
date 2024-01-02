@@ -3,6 +3,8 @@ import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
 import BASE_URL from '../BASE_URL';
 
 const AddProductModal = ({ show, onHide, onProductAdded }) => {
+  
+  
   const [productData, setProductData] = useState({
     title: '',
     price: '',
@@ -86,7 +88,7 @@ const AddProductModal = ({ show, onHide, onProductAdded }) => {
           </Row>
 
           <Form.Group controlId="formDescription">
-            <Form.Label>Description</Form.Label>
+            <Form.Label className='mt-2'>Description</Form.Label>
             <Form.Control
               as="textarea"
               placeholder="Enter description"
