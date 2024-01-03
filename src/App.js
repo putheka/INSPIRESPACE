@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as BRouter, Route, Routes } from "react-router-dom";
@@ -17,6 +18,7 @@ import Services from "./page/service";
 import JsonData from "./data/data.json";
 import NotFoundpage from "./page/NotFoundpage";
 import ProductDashBoard from "./component/ProductDashBoard";
+import { ToastContainer } from "react-toastify";
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
   useEffect(() => {
@@ -36,6 +38,7 @@ const App = () => {
         <Route path="*" element={<NotFoundpage/>} />
         </Routes>
         <Footer />
+        <ToastContainer/>
       </BRouter>
   
   );

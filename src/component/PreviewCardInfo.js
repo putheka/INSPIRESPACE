@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Delete_Product } from '../BASE_URL';
+import { toast } from 'react-toastify'
+import { ThreeCircles } from 'react-loader-spinner'
+
+
 
 const PlaceholderImage = "https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png";
 
-const PreviewCardInfo = ({ product, onClick }) => {
+const PreviewCardInfo = ({ onDelete, product, onClick }) => {
+
+  const [isLoading, setisLoading] = useState(false)
+
+  const [isCardVisible, setIsCardVisible] = useState(true);
+
+  const handleDelete = () => {
+    setisLoading(true);
+  
+    Delete_Product(product.id)
+      .then(response => {
+        toast.success("Delete successfully");
+        onDelete(product.id);
+        setisLoading(false);   // This line should not cause a refresh
+        setIsCardVisible(null);// Set visibility to false after successful delete
+      })
+      .catch(error => {
+        toast.error("Failed to Delete !! ")
+        console.log("Error Delete : ", error)
+        setisLoading(false);
+      });
+  }
+  
+
   // Check if product is undefined or not selected
   if (!product || !product.images || product.images.length === 0) {
     // Display default style with placeholder image
@@ -29,6 +57,8 @@ const PreviewCardInfo = ({ product, onClick }) => {
 
   // Display selected product information
   return (
+    <>
+    {isCardVisible && ( 
     <div className="card border-success mb-3 text-center" onClick={onClick}>
       <img
         className="card-img-top"
@@ -51,10 +81,28 @@ const PreviewCardInfo = ({ product, onClick }) => {
         </p>
         <div className="d-flex justify-content-around align-items-center">
           <button className="btn btn-outline-warning">Update</button>
-          <button className="btn btn-outline-danger">Delete</button>
+          <button
+            className="btn btn-outline-danger"
+            onClick={handleDelete}
+          > 
+            {
+              isLoading ? <>
+              <ThreeCircles
+              visible={true}
+              height="25"
+              width="50"
+              color="#4fa94d"
+              ariaLabel="three-circles-loading"
+              wrapperClass=""
+            /></> :
+              " Delete "
+            } 
+          </button>
         </div>
       </div>
     </div>
+    )}
+    </>
   );
 };
 

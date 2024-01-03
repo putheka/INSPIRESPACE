@@ -11,6 +11,8 @@ const ProductDashBoard = () => {
   const [filteredText, setFilteredText] = useState('');
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isCardVisible, setIsCardVisible] = useState(true);
+
 
   const columns = [
     {
@@ -52,20 +54,33 @@ const ProductDashBoard = () => {
     fetch(BASE_URL)
       .then((res) => res.json())
       .then((data) => {
-        let filteredProduct = data.filter((p) => p.category.name.toLowerCase() === "furniture");
-        setProducts(filteredProduct);
+        let sortedProduct = data.sort((a, b) => b.id - a.id);
+        let filteredProduct = data.filter((p) =>
+          p.category.name.toLowerCase() === "furniture" &&
+          p.title.toLowerCase().includes(filteredText.toLowerCase())
+        );
+        setProducts(filteredProduct, sortedProduct);
         setLoading(false);
       })
       .catch((error) => console.log('Error is: ', error));
   }, [filteredText]);
 
+
   const RowclickHandler = (row) => {
     setSelectedProduct(row);
+    
   }
 
   const closeModal = () => {
     setSelectedProduct(null);
   }
+
+
+  const handleStateChange = (deletedProductId) => {
+    // Update the state to reflect the deletion
+    setProducts(prevProducts => prevProducts.filter(product => product.id !== deletedProductId));
+  }
+
 
   return (
     <>
@@ -112,6 +127,7 @@ const ProductDashBoard = () => {
                       name='search'
                       placeholder='Search by title...'
                     />
+
                   </div>
                 }
                 data={products}
@@ -129,14 +145,17 @@ const ProductDashBoard = () => {
       />
 
       {/* Preview Product Modal */}
-      <Modal show={!!selectedProduct} onHide={closeModal}>
+      <Modal show={isCardVisible && !!selectedProduct} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>Product Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <PreviewCardInfo product={selectedProduct} />
+          {/* {isCardVisible && } */}
+          <PreviewCardInfo 
+          product={selectedProduct} onDelete={handleStateChange} />
         </Modal.Body>
       </Modal>
+
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import BASE_URL from '../BASE_URL';
-import PlaceholderDetailCard from '../page/PlaceholderDetailCard'
+
 
 const ProductDetails = () => {
   const location = useLocation();

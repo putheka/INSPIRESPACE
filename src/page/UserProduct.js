@@ -10,9 +10,10 @@ const UserProduct = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Corrected function name
+  
   const PER_PAGE = 6;
-  const offset = currentPage * PER_PAGE;
-  const currentPageData = data.slice(offset, offset + PER_PAGE);
+  const startIndex = currentPage * PER_PAGE;     
+  const currentPageData = data.slice(startIndex, startIndex + PER_PAGE);
   const pageCount = Math.ceil(data.length / PER_PAGE);
 
   useEffect(() => {
