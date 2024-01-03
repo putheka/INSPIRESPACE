@@ -48,22 +48,9 @@ const ProductDetails = () => {
                 {product.description}
               </p>
               <h2>Categories</h2>
-              {Array.isArray(product.category) ? (
-                // Check if product.category is an array before using map
-                product.category.map((item) => (
-                  <span
-                    className="badge rounded-pill bg-info text-dark mb-3 me-2"
-                    key={item.id}
-                  >
-                    {item.name}
-                  </span>
-                ))
-              ) : (
-                // Handle the case where product.category is not an array
-                <span className="badge rounded-pill bg-info text-dark mb-3 me-2">
+                <span className="badge rounded-pill bg-success text-white mb-3 me-2">
                   {product.category.name}
                 </span>
-              )}
               <h2>Price</h2>
               <h4>{product.price} $</h4>
             </div>

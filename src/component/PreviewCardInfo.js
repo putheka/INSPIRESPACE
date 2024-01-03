@@ -7,7 +7,7 @@ const PreviewCardInfo = ({ product, onClick }) => {
   if (!product || !product.images || product.images.length === 0) {
     // Display default style with placeholder image
     return (
-      <div className="card border-success mb-3" onClick={onClick}>
+      <div className="card border-success mb-3 text-center" onClick={onClick}>
         <img
           className="card-img-top"
           src={PlaceholderImage}
@@ -15,10 +15,10 @@ const PreviewCardInfo = ({ product, onClick }) => {
         />
         <div className="card-body">
           <h5 className="card-title text-success">Title</h5>
-          <p className="card-text text-muted">
-            Description
-          </p>
-          <div className="d-flex justify-content-around align-items-center">
+          <p className="card-text mt-5">Description</p>
+          <p className="card-text mt-5">Categories</p>
+          <p className="card-text mt-5">Price</p>
+          <div className="d-flex justify-content-around align-items-center mt-5">
             <button className="btn btn-outline-warning">Update</button>
             <button className="btn btn-outline-danger">Delete</button>
           </div>
@@ -29,7 +29,7 @@ const PreviewCardInfo = ({ product, onClick }) => {
 
   // Display selected product information
   return (
-    <div className="card border-success mb-3" onClick={onClick}>
+    <div className="card border-success mb-3 text-center" onClick={onClick}>
       <img
         className="card-img-top"
         onError={({ currentTarget }) => {
@@ -41,8 +41,13 @@ const PreviewCardInfo = ({ product, onClick }) => {
       />
       <div className="card-body">
         <h5 className="card-title text-success">{product.title}</h5>
-        <p className="card-text text-muted">
+        <p className="card-text">
+          <h5>Description</h5>
           {product.description}
+          <h5>Categories</h5>
+          <h3 className="badge rounded-pill bg-success text-white mb-3 me-2">{product.category.name}</h3>
+          <h5>Price</h5>
+          <h4>{product.price} $</h4>
         </p>
         <div className="d-flex justify-content-around align-items-center">
           <button className="btn btn-outline-warning">Update</button>

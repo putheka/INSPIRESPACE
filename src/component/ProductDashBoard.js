@@ -1,16 +1,16 @@
-// ProductDashBoard.jsx
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import BASE_URL from '../BASE_URL';
 import PreviewCardInfo from "../component/PreviewCardInfo";
 import AddProductModal from "../component/AddProductModal";
+import { Modal } from 'react-bootstrap';
 
 const ProductDashBoard = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filteredText, setFilteredText] = useState('');
   const [showAddProductModal, setShowAddProductModal] = useState(false);
-  const [SelectedProduct, setSelectedProduct] = useState([])
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const columns = [
     {
@@ -59,13 +59,14 @@ const ProductDashBoard = () => {
       .catch((error) => console.log('Error is: ', error));
   }, [filteredText]);
 
-  let filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(filteredText.toLowerCase())
-  );
-
   const RowclickHandler = (row) => {
-        setSelectedProduct(row);
+    setSelectedProduct(row);
   }
+
+  const closeModal = () => {
+    setSelectedProduct(null);
+  }
+
   return (
     <>
       {loading && (
@@ -80,12 +81,10 @@ const ProductDashBoard = () => {
       {!loading && (
         <div className='container mt-5'>
           <div className='d-flex justify-content-between'>
-            <div className='col-3 mx-auto mt-1'>
-              {/* {filteredProducts.length > 0 && <PreviewCardInfo product={filteredProducts[0]} />} 
-              */}
-              <PreviewCardInfo product={SelectedProduct} />
-            </div>
-            <div className='data-table col-8'>
+            {/* <div className='col-3 mx-auto mt-1'>
+              <PreviewCardInfo product={selectedProduct} />
+            </div> */}
+            <div className='data-table col-12'>
               <DataTable
                 className='table table-striped table-hover w-100'
                 subHeader={true}
@@ -115,7 +114,7 @@ const ProductDashBoard = () => {
                     />
                   </div>
                 }
-                data={filteredProducts}
+                data={products}
                 onRowClicked={RowclickHandler}
               />
             </div>
@@ -128,9 +127,18 @@ const ProductDashBoard = () => {
         show={showAddProductModal}
         onHide={() => setShowAddProductModal(false)}
       />
+
+      {/* Preview Product Modal */}
+      <Modal show={!!selectedProduct} onHide={closeModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Product Details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <PreviewCardInfo product={selectedProduct} />
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
 
 export default ProductDashBoard;
-    
