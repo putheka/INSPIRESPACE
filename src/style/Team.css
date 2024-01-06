@@ -7,7 +7,8 @@
     margin: 5px 0;
   }
   #team .team-img {
-    width: 240px;
+    width: 200px;
+    height: 260px;
   }
   #team .thumbnail {
     background: transparent;

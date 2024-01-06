@@ -125,24 +125,24 @@
     ],
     "Team": [
       {
-        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833560.jpg?size=626&ext=jpg",
-        "name": "John Doe",
-        "job": "Director"
+        "img": "https://i.pinimg.com/originals/ed/4a/c2/ed4ac2287667aec0f0ef79c9643e244b.jpg",
+        "name": "Kol sarangsey",
+        "job": " Founder "
       },
       {
         "img": "https://i.pinimg.com/originals/16/6c/9a/166c9a542b61a551a99915f5f44b7b68.jpg",
-        "name": "Mike Doe",
-        "job": "Senior Designer"
+        "name": "Chhon Putheka",
+        "job": "Creative manager"
       },
       {
-        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833572.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
-        "name": "Jane Doe",
-        "job": "Senior Designer"
+        "img": "https://i.pinimg.com/originals/d2/ec/ef/d2ecef8e1a0afcccb2b650111826b789.jpg",
+        "name": " chea vireak norin ",
+        "job": "Creative manager"
       },
       {
-        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833554.jpg?size=626&ext=jpg&ga=GA1.1.2016474121.1701243185&semt=ais",
-        "name": "Karen Doe",
-        "job": "Project Manager"
+        "img": "https://i.pinimg.com/originals/a1/8c/2b/a18c2bef2126d0a81eb899f73b1379ea.jpg",
+        "name": "keo vuththana",
+        "job": " Operations Manager "
       }
     ],
     "Contact": {

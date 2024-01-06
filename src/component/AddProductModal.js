@@ -143,6 +143,7 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
       <Modal.Header closeButton={false}>
         <Modal.Title className="m-auto">
           {isUpdate ? 'Update Product Information' : 'Create New Product'}
+          
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
