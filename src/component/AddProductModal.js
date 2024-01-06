@@ -29,7 +29,7 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
       setTitle('');
       setDescription('');
       setPrice(0);
-      setCategoryId(16);
+      setCategoryId(3);
       setImages([]);
       setSelectedImage('https://img.freepik.com/premium-psd/upload-folder-3d-icon_136651-1164.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais');
     }
