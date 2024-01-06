@@ -125,22 +125,22 @@
     ],
     "Team": [
       {
-        "img": "https://i.pinimg.com/originals/ed/4a/c2/ed4ac2287667aec0f0ef79c9643e244b.jpg",
+        "img": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais",
         "name": "Kol sarangsey",
         "job": " Founder "
       },
       {
-        "img": "https://i.pinimg.com/originals/16/6c/9a/166c9a542b61a551a99915f5f44b7b68.jpg",
+        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833560.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais",
         "name": "Chhon Putheka",
-        "job": "Creative manager"
+        "job": "Developer"
       },
-      {
-        "img": "https://i.pinimg.com/originals/d2/ec/ef/d2ecef8e1a0afcccb2b650111826b789.jpg",
+      { 
+        "img": "https://img.freepik.com/free-psd/3d-illustration-person_23-2149436192.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais",
         "name": " chea vireak norin ",
         "job": "Creative manager"
       },
       {
-        "img": "https://i.pinimg.com/originals/c1/f1/7c/c1f17c82587575b143fd230dab11375c.jpg",
+        "img": "https://img.freepik.com/free-psd/3d-rendering-avatar_23-2150833560.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais",
         "name": "Chea Orn raneth",
         "job": " Operations Manager "
       }
