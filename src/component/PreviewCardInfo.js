@@ -1,22 +1,27 @@
+
 import React, { useState } from 'react';
 import { Delete_Product } from '../BASE_URL';
 import { toast } from 'react-toastify'
 import { ThreeCircles } from 'react-loader-spinner'
 
-
-
 const PlaceholderImage = "https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png";
 
-const PreviewCardInfo = ({ onDelete, product, onClick }) => {
+const PreviewCardInfo = ({ onDelete, product, onUpdate ,onClick }) => {
 
   const [isLoading, setisLoading] = useState(false)
 
   const [isCardVisible, setIsCardVisible] = useState(true);
 
+  const handleUpdate = () => {
+    setisLoading(true);
+    onUpdate(product.id);
+    console.log(handleUpdate)
+  };
+
   const handleDelete = () => {
     setisLoading(true);
   
-    Delete_Product(product.id)
+    Delete_Product(product.id)  
       .then(response => {
         toast.success("Delete successfully");
         onDelete(product.id);
@@ -54,7 +59,7 @@ const PreviewCardInfo = ({ onDelete, product, onClick }) => {
       </div>
     );
   }
-
+  
   // Display selected product information
   return (
     <>
@@ -80,7 +85,11 @@ const PreviewCardInfo = ({ onDelete, product, onClick }) => {
           <h4>{product.price} $</h4>
         </p>
         <div className="d-flex justify-content-around align-items-center">
-          <button className="btn btn-outline-warning">Update</button>
+          <button
+           className="btn btn-outline-warning"
+           onClick={handleUpdate}>
+            Update
+          </button>
           <button
             className="btn btn-outline-danger"
             onClick={handleDelete}

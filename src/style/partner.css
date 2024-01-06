@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
 #features {
     background: #f6f6f6;
     height: 50vh;
@@ -22,4 +25,7 @@
     margin-right: -15px;
     margin-left: -15px;
     margin-top: 20px;
+  }
+  .parter-text{
+    font-family: 'Concert One', sans-serif;
   }

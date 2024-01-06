@@ -1,140 +1,232 @@
-import React, { useState } from 'react';
-import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
-import BASE_URL from '../BASE_URL';
+import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import { ThreeCircles } from 'react-loader-spinner'
+import { toast } from 'react-toastify';
+import { CREATE_PRODUCT, UPDATE_PRODUCT_BY_ID, UPLOAD_FILE } from '../utils/fileService';
 
-const AddProductModal = ({ show, onHide, onProductAdded }) => {
-  
-  
-  const [productData, setProductData] = useState({
-    title: '',
-    price: '',
-    description: '',
-    categoryId: '',
-    images: ['', '', ''],
-  });
+const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, isUpdate }) => {
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState(0);
+  const [description, setDescription] = useState('');
+  const [categoryId, setCategoryId] = useState(3);
+  const [images, setImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedImage, setSelectedImage] = useState('https://img.freepik.com/premium-psd/upload-folder-3d-icon_136651-1164.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais');
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setProductData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  useEffect(() => {
+    if (updatedProduct) {
+      console.log("Effect triggered with updatedProduct:", updatedProduct);
+      setTitle(updatedProduct.title || '');
+      setDescription(updatedProduct.description || '');
+      setPrice(updatedProduct.price || 0);
+      setCategoryId(updatedProduct.category.id || 3);
+      setImages(updatedProduct.images || []);
+      setSelectedImage(updatedProduct.images ? updatedProduct.images[0] : 'https://img.freepik.com/premium-psd/upload-folder-3d-icon_136651-1164.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais');
+    } else {
+      setTitle('');
+      setDescription('');
+      setPrice(0);
+      setCategoryId(16);
+      setImages([]);
+      setSelectedImage('https://img.freepik.com/premium-psd/upload-folder-3d-icon_136651-1164.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais');
+    }
+  }, [updatedProduct]);
+
+  const handleProductClose = () => {
+    handleCloseProductForm();
   };
 
-  const handleImageChange = (e, index) => {
-    const newImages = [...productData.images];
-    newImages[index] = e.target.value;
-    setProductData((prevData) => ({
-      ...prevData,
-      images: newImages,
-    }));
+  const handleCreateNewProduct = () => { 
+    setIsLoading(true);
+
+    const productData = {
+      title,
+      price,
+      description,
+      categoryId,
+      images: [],
+    };
+
+    if (updatedProduct) {
+      // Handle update logic
+      if (selectedFile) {
+        const fileData = new FormData();
+        fileData.append('file', selectedFile);
+
+        UPLOAD_FILE(fileData)
+          .then((response) => {
+            productData.images.push(response.location);
+
+            UPDATE_PRODUCT_BY_ID(updatedProduct.id, productData)
+              .then(() => {
+                toast.success('Updated Product Successfully!');
+                setIsLoading(false);
+              })
+              .catch((error) => {
+                console.error('Error updating product', error);
+                toast.error('Failed to update product!');
+                setIsLoading(false);
+              });
+          })
+          .catch((error) => {
+            console.error('Error uploading file', error);
+            toast.error('Failed to upload file!');
+            setIsLoading(false);
+          });
+      } else {
+        productData.images = updatedProduct.images;
+
+        UPDATE_PRODUCT_BY_ID(updatedProduct.id, productData)
+          .then(() => {
+            toast.success('Updated Product Successfully!');
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error('Error updating product', error);
+            toast.error('Failed to update product!');
+            setIsLoading(false);
+          });
+      }
+    } else {
+      // Handle create logic
+      if (selectedFile) {
+        const fileData = new FormData();
+        fileData.append('file', selectedFile);
+
+        UPLOAD_FILE(fileData)
+          .then((response) => {
+            productData.images.push(response.location);
+
+            CREATE_PRODUCT(productData)
+              .then(() => {
+                toast.success('Created Product Successfully!');
+                setIsLoading(false);
+              })
+              .catch((error) => {
+                console.error('Error creating product', error);
+                toast.error('Failed to create product!');
+                setIsLoading(false);
+              });
+          })
+          .catch((error) => {
+            console.error('Error uploading file', error);
+            toast.error('Failed to upload file!');
+            setIsLoading(false);
+          });
+      } else {
+        // No file selected
+        CREATE_PRODUCT(productData)
+          .then(() => {
+            toast.success('Created Product Successfully!');
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error('Error creating product', error);
+            toast.error('Failed to create product!');
+            setIsLoading(false);
+          });
+      }
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Add your API call logic here
-    fetch(BASE_URL + '/products', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(productData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // Optionally, you can handle the response or perform additional actions
-        console.log('Product added successfully:', data);
-        onProductAdded(); // Notify the parent component that a product has been added
-        onHide(); // Close the modal
-      })
-      .catch((error) => console.error('Error adding product:', error));
+  const handleImageChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+    const imageUrl = URL.createObjectURL(e.target.files[0]);
+    setSelectedImage(imageUrl);
   };
 
   return (
-    <Modal show={show} onHide={onHide} size="lg">
-      <Modal.Header closeButton>
-        <Modal.Title>Add Product</Modal.Title>
+    <Modal size="lg" show={showProduct} onHide={handleProductClose}>
+      <Modal.Header closeButton={false}>
+        <Modal.Title className="m-auto">
+          {isUpdate ? 'Update Product Information' : 'Create New Product'}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={handleSubmit}>
-          <Row>
-            <Col md={6}>
-              <Form.Group controlId="formTitle">
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter title"
-                  name="title"
-                  value={productData.title}
-                  onChange={handleInputChange}
-                  required
-                />
-              </Form.Group>
-            </Col>
-            <Col md={6}>
-              <Form.Group controlId="formPrice">
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Enter price"
-                  name="price"
-                  value={productData.price}
-                  onChange={handleInputChange}
-                  required
-                />
-              </Form.Group>
-            </Col>
-          </Row>
+  <div className="d-flex justify-content-between">
+    <div className="img-side">
+      <label htmlFor="file-input">
+        <div className="preview-container">
+          <img
+            id="preview-image"
+            className="img-fluid img-thumbnail"
+            src={selectedImage}
+            alt="Product Preview"
+          />
+          <div className="upload-icon">
+           
+          </div>
+        </div>
+        <input
+          className="form-control d-none"
+          type="file"
+          name=""
+          onChange={handleImageChange}
+          id="file-input"
+          multiple
+        />
+      </label>
+    </div>
 
-          <Form.Group controlId="formDescription">
-            <Form.Label className='mt-2'>Description</Form.Label>
-            <Form.Control
-              as="textarea"
-              placeholder="Enter description"
-              name="description"
-              value={productData.description}
-              onChange={handleInputChange}
-              rows={3}
-              required
-            />
-          </Form.Group>
+    <div className="form-side w-50 ms-3">
+      <Form>
+        <Form.Group className="mb-3" controlId="formTitle">
+          <Form.Label>Product Title</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter product title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </Form.Group>
 
-          <Row>
-            <Col md={6}>
-              <Form.Group controlId="formCategory">
-                <Form.Label>Category ID</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter category ID"
-                  name="categoryId"
-                  value={productData.categoryId}
-                  onChange={handleInputChange}
-                  required
-                />
-              </Form.Group>
-            </Col>
-            {productData.images.map((image, index) => (
-              <Col md={6} key={index}>
-                <Form.Group controlId={`formImage${index + 1}`}>
-                  <Form.Label>{`Image ${index + 1}`}</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder={`Enter image URL for Image ${index + 1}`}
-                    value={image}
-                    onChange={(e) => handleImageChange(e, index)}
-                    required
-                  />
-                </Form.Group>
-              </Col>
-            ))}
-          </Row>
+        <Form.Group className="mb-3" controlId="formPrice">
+          <Form.Label>Product Price</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Enter product price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </Form.Group>
 
-          <Button className='mt-2' variant="primary" type="submit">
-            Save
+        <Form.Group className="mb-3" controlId="formDescription">
+          <Form.Label>Product Description</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            placeholder="Enter product description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </Form.Group>
+
+        <div className="text-center">
+          <Button
+            variant={updatedProduct ? 'warning' : 'success'}
+            className="w-90 justify-content-center"
+            onClick={handleCreateNewProduct}
+          >
+            {isLoading ? (
+             <ThreeCircles
+             visible={true}
+             height="25"
+             width="50"
+             color="#4fa94d"
+             ariaLabel="three-circles-loading"
+             wrapperClass=""/>
+            ) : (
+              updatedProduct ? 'Update Product' : 'Create Product'
+            )}
           </Button>
-        </Form>
-      </Modal.Body>
+        </div>
+      </Form>
+    </div>
+  </div>
+</Modal.Body>
     </Modal>
   );
 };

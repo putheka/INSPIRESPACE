@@ -12,7 +12,7 @@ const ProductDashBoard = () => {
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCardVisible, setIsCardVisible] = useState(true);
-
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
 
   const columns = [
     {
@@ -51,6 +51,7 @@ const ProductDashBoard = () => {
   ];
 
   useEffect(() => {
+    
     fetch(BASE_URL)
       .then((res) => res.json())
       .then((data) => {
@@ -65,6 +66,11 @@ const ProductDashBoard = () => {
       .catch((error) => console.log('Error is: ', error));
   }, [filteredText]);
 
+  const handleUpdateClick = (productId) => {
+    // Set the selected product for update
+    setSelectedProduct(products.find((product) => product.id === productId));
+    setShowAddProductModal(true);
+  };
 
   const RowclickHandler = (row) => {
     setSelectedProduct(row);
@@ -96,9 +102,6 @@ const ProductDashBoard = () => {
       {!loading && (
         <div className='container mt-5'>
           <div className='d-flex justify-content-between'>
-            {/* <div className='col-3 mx-auto mt-1'>
-              <PreviewCardInfo product={selectedProduct} />
-            </div> */}
             <div className='data-table col-12'>
               <DataTable
                 className='table table-striped table-hover w-100'
@@ -138,11 +141,13 @@ const ProductDashBoard = () => {
         </div>
       )}
 
-      {/* Add Product Modal */}
       <AddProductModal
-        show={showAddProductModal}
-        onHide={() => setShowAddProductModal(false)}
+      updatedProduct={selectedProduct}
+      showProduct={showAddProductModal}
+      handleCloseProductForm={() => setShowAddProductModal(false)}
+      isUpdate={!!selectedProduct} // Pass isUpdate based on whether selectedProduct exists
       />
+
 
       {/* Preview Product Modal */}
       <Modal show={isCardVisible && !!selectedProduct} onHide={closeModal}>
@@ -151,8 +156,17 @@ const ProductDashBoard = () => {
         </Modal.Header>
         <Modal.Body>
           {/* {isCardVisible && } */}
-          <PreviewCardInfo 
-          product={selectedProduct} onDelete={handleStateChange} />
+          {/* <PreviewCardInfo 
+          product={selectedProduct}   
+          onDelete={handleStateChange}
+          onUpdate={handleUpdateClick} /> */}
+           <PreviewCardInfo
+            product={selectedProduct}
+            onDelete={handleStateChange}
+            onUpdate={handleUpdateClick}
+            onClick={closeModal}
+          />
+
         </Modal.Body>
       </Modal>
 

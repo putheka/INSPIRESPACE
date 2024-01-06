@@ -1,4 +1,18 @@
 /* Header Section */
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lemon&family=Mukta&family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Lemon&family=Mukta&family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+.logo{
+  font-family: 'Lemon', sans-serif;
+}
+.logo-nav{
+  font-family: 'Roboto Slab', serif;
+}
+.logo-button{
+  font-family: 'Black Ops One', system-ui;
+}
 .intro {
     display: table;
     width: 100%;

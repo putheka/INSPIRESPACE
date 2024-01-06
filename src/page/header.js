@@ -16,7 +16,7 @@ const Header = (props) => {
 
                 <p>Welcome to FURNITURE, where joy meets design. Elevate your space with our curated furniture collection, crafted to bring happiness and style into your home.</p>
 
-                <Button variant="success" as="a" href="#features">
+                <Button variant="success" as="a" href="#features" className="logo-button">
                   Discover More About Us
                 </Button>
               </div>

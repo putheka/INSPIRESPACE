@@ -16,7 +16,7 @@ const Partner = (props) => {
                 <div key={`${d.title}-${i}`} className="col-xs-6 col-md-3">
                   <img src={d.img} alt="image" className="img-fluid" />
                   <h3>{d.title}</h3>
-                  <p>{d.text}</p>
+                  <p className="parter-text">{d.text}</p>
                 </div>
               ))
             : "Loading..."}

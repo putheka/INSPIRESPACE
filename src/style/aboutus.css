@@ -1,5 +1,9 @@
 
-/* About Section */
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+.about-font{
+  font-family: 'Bree Serif', serif;
+}
 #about {
     padding: 100px 0;
   }
