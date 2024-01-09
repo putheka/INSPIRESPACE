@@ -1,88 +1,35 @@
-img {
-  -webkit-user-drag: none;
-}
-.footer {
-  /* background-color: orange; */
- 
-  bottom: 0;
-  z-index: 100;
-  /* margin-top: 100px; */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.11);
+
+#footer {
+  background: #2a2e32;
+
 }
 
-.footer img {
-  width: 300px;
-  object-fit: contain;
-  filter: drop-shadow(0px 10px 14px rgba(0, 0, 0, 0.449));
+.text-small {
+  font-size: 0.9rem;
 }
 
- .left-sides img {
-    margin-bottom: 10px;
-    margin-top: -10px;
-    
-}
- 
- 
-.middle-side {
-  flex-grow: 3;
-}
-.right-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding-bottom: 20px;
-}
-.left-sides h4 {
-  font-weight: 600;
-}
-.right-side h4 {
-  font-weight: 600;
-  flex-grow: 0;
-}
-
-.footer .right-side input:focus {
-  /* outline: none; */
-  outline-color: #7ca330;
-}
-
-.footer .allrights p {
-  padding: 3px 0;
-  background-color: #7ca330;
-  color: white;
-  margin-bottom: 0;
-}
-
-.footer .right-side input {
-  border: 0;
-  padding: 5px 20px;
-  border-radius: 5px 0 0 5px;
-  background-color: #dfe2e0;
-}
-.footer .search-button {
-  background-color: #7ca330;
-  border: 0;
-  border-radius: 0 5px 5px 0;
-  color: white;
-  padding: 0 30px;
-}
-
-.footer a {
-  font-weight: bolder;
-
-  font-size: 1.2rem;
+a {
+  color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  transition: all 0.3s;
 }
 
-/*  code from chatgpt */
-.footer a:hover {
-  color: #108545;
+a:hover, a:focus {
   text-decoration: none;
 }
 
-
-.footer .logo-name {
-     font-size: 1.7rem;
-    font-weight: 600;
-    color: #7ca330;
+#footer .form-control {
+  background: #212529;
+  border-color: #545454;
 }
+
+#footer .form-control:focus {
+  background: #212529;
+}
+
+/* footer {
+  background: #212529;
+} */
+
+
+

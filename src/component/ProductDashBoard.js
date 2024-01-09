@@ -7,6 +7,7 @@ import { Modal } from 'react-bootstrap';
 
 const ProductDashBoard = () => {
   const [products, setProducts] = useState([]);
+  const [updatedProduct,setupdateProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [filteredText, setFilteredText] = useState('');
   const [showAddProductModal, setShowAddProductModal] = useState(false);
@@ -72,6 +73,13 @@ const ProductDashBoard = () => {
     setShowAddProductModal(true);
   };
 
+  const handleProductUpdate = (updatedProduct) => {
+    setupdateProduct(updatedProduct)
+    setShowAddProductModal(true);
+
+
+  }
+
   const RowclickHandler = (row) => {
     setSelectedProduct(row);
     
@@ -119,7 +127,10 @@ const ProductDashBoard = () => {
                   <div className='d-flex w-100 justify-content-between'>
                     <button
                       className='btn btn-success'
-                      onClick={() => setShowAddProductModal(true)}
+                      onClick={() => {
+                        setShowAddProductModal(true)
+                        setupdateProduct(null)
+                      }} 
                     >
                       Add Product
                     </button>
@@ -142,7 +153,7 @@ const ProductDashBoard = () => {
       )}
 
       <AddProductModal
-      updatedProduct={selectedProduct}
+      updatedProduct={updatedProduct}
       showProduct={showAddProductModal}
       handleCloseProductForm={() => setShowAddProductModal(false)}
       isUpdate={!!selectedProduct} // Pass isUpdate based on whether selectedProduct exists
@@ -163,7 +174,7 @@ const ProductDashBoard = () => {
            <PreviewCardInfo
             product={selectedProduct}
             onDelete={handleStateChange}
-            onUpdate={handleUpdateClick}
+            onUpdate={handleProductUpdate}
             onClick={closeModal}
           />
 

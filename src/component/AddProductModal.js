@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { ThreeCircles } from 'react-loader-spinner'
 import { toast } from 'react-toastify';
-import { CREATE_PRODUCT, UPDATE_PRODUCT_BY_ID, UPLOAD_FILE } from '../utils/fileService';
+import { CREATE_PRODUCT, UPDATE_PRODUCT_BY_ID, UPLOAD_FILE } from '../services/productService';
 
 const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, isUpdate }) => {
   const [title, setTitle] = useState('');
@@ -142,7 +142,7 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
     <Modal size="lg" show={showProduct} onHide={handleProductClose}>
       <Modal.Header closeButton={false}>
         <Modal.Title className="m-auto">
-          {isUpdate ? 'Update Product Information' : 'Create New Product'}
+          {updatedProduct ? 'Update Product' : 'Create New Product'}
           
         </Modal.Title>
       </Modal.Header>

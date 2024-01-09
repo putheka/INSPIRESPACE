@@ -12,10 +12,10 @@ const PreviewCardInfo = ({ onDelete, product, onUpdate ,onClick }) => {
 
   const [isCardVisible, setIsCardVisible] = useState(true);
 
-  const handleUpdate = () => {
+  const handleUpdateProduct = () => {
     setisLoading(true);
-    onUpdate(product.id);
-    console.log(handleUpdate)
+    onUpdate(product);
+    console.log(handleUpdateProduct)
   };
 
   const handleDelete = () => {
@@ -87,7 +87,7 @@ const PreviewCardInfo = ({ onDelete, product, onUpdate ,onClick }) => {
         <div className="d-flex justify-content-around align-items-center">
           <button
            className="btn btn-outline-warning"
-           onClick={handleUpdate}>
+           onClick={handleUpdateProduct}>
             Update
           </button>
           <button

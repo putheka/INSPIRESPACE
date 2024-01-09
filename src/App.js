@@ -11,7 +11,6 @@ import About from "./page/aboutus";
 import Comment from "./page/comment";
 import Team from "./page/Team";
 import Contact from "./page/Contact";
-import Products from "./page/product";
 import UserProduct  from "./page/UserProduct";
 import ProductDetails from "./page/ProductDetails";
 import Services from "./page/service";
@@ -31,7 +30,6 @@ const App = () => {
         <NavBar />
         <Routes>
         <Route path="/" element={<HomePage landingPageData={landingPageData} />} />
-        <Route path="/products" element={<Products/>}/>
         <Route path="/UserProduct" element={<UserProduct/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
         <Route path="/productDash" element={<ProductDashBoard/>}/>
