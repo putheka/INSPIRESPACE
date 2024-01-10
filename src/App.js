@@ -17,6 +17,9 @@ import Services from "./page/service";
 import JsonData from "./data/data.json";
 import NotFoundpage from "./page/NotFoundpage";
 import ProductDashBoard from "./component/ProductDashBoard";
+import UserDashBoard from "./component/UserDashBoard"
+import Login from "./component/Login";
+import SignUp from "./component/signup";
 import { ToastContainer } from "react-toastify";
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -33,6 +36,9 @@ const App = () => {
         <Route path="/UserProduct" element={<UserProduct/>}/>
         <Route path="/product-details/:id" element={<ProductDetails/>}/>
         <Route path="/productDash" element={<ProductDashBoard/>}/>
+        <Route path="/UserDashBoard" element={<UserDashBoard/>}/>
+        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="*" element={<NotFoundpage/>} />
         </Routes>
         <Footer />

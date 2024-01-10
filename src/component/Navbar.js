@@ -7,7 +7,7 @@ function NavBar() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home" className="logo">INSPIRESPACE</Navbar.Brand>
+                <Navbar.Brand href="#home" className="logo text-success">INSPIRESPACE</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto text-center logo-nav">
@@ -18,16 +18,15 @@ function NavBar() {
                         <NavLink className={"nav-link"} to="/UserProduct">
                             Products
                         </NavLink>
-                        {/* <NavLink className={"nav-link"} to="/products">
-                            Product Dashboard
-                        </NavLink> */}
                         <NavLink className={"nav-link"} to="/productDash">  
                             Dashboard
                         </NavLink>
-
+                        <NavLink className={"nav-link"} to="/UserDashBoard">
+                            User Dashboard
+                        </NavLink>
                     </Nav>
                     <div className="d-flex justify-content-center">
-                        <button className='btn btn-success '> Login </button>
+                    <NavLink to="/login" className="btn btn-success" role="button">Login</NavLink>
                     </div>
                 </Navbar.Collapse>
             </Container>

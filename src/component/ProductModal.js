@@ -28,7 +28,7 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
     } else {
       setTitle('');
       setDescription('');
-      setPrice(0);
+      setPrice();
       setCategoryId(3);
       setImages([]);
       setSelectedImage('https://img.freepik.com/premium-psd/upload-folder-3d-icon_136651-1164.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais');
@@ -102,6 +102,7 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
 
             CREATE_PRODUCT(productData)
               .then(() => {
+                
                 toast.success('Created Product Successfully!');
                 setIsLoading(false);
               })
@@ -154,6 +155,7 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
           <img
             id="preview-image"
             className="img-fluid img-thumbnail"
+            style={{ maxWidth: '100%', height: 'auto', maxHeight: '300px' }}
             src={selectedImage}
             alt="Product Preview"
           />

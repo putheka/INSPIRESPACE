@@ -5,6 +5,7 @@ import axios from 'axios';
 const BASE_URL = "https://api.escuelajs.co/api/v1/products"
 export default BASE_URL
 
+
 // export const CREATE_PRODUCT = async (product) => {
 //     const response = await axios.post(`${BASE_URL}`)
 //     return response.data

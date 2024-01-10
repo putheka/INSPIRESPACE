@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
-import BASE_URL from '../BASE_URL';
-import PreviewCardInfo from "../component/PreviewCardInfo";
-import AddProductModal from "../component/ProductModal";
+import GET_ALL_USER from '../services/UserService';
+import UserPreviewCard from '../component/UserPreviewCard';
+import UserModal from '../component/UserModel';
 import { Modal } from 'react-bootstrap';
 
-const ProductDashBoard = () => {
-  const [products, setProducts] = useState([]);
-  const [updatedProduct,setupdateProduct] = useState(null);
+const UserDashBoard = () => {
+  const [users, setUsers] = useState([]);
+  const [updatedUser, setUpdateUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [filteredText, setFilteredText] = useState('');
-  const [showAddProductModal, setShowAddProductModal] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showAddUserModal, setShowAddUserModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [isCardVisible, setIsCardVisible] = useState(true);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
 
@@ -31,82 +31,70 @@ const ProductDashBoard = () => {
             currentTarget.src = 'https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png';
           }}
           style={{ width: '100px', height: '100px' }}
-          src={row.images[0]}
+          src={row.avatar}
           alt=' product Image '
         />
       ),
-      width: '150px',
     },
     {
-      name: 'Title',
-      selector: (row) => row.title,
-      width: '300px',
+      name: 'Email',
+      selector: (row) => row.email,
     },
     {
-      name: 'Description',
-      selector: (row) => row.description,
-      width: '600px',
+      name: 'PassWord',
+      selector: (row) => row.password,
     },
     {
-      name: 'Price',
-      selector: (row) => row.price,
+      name: 'Role',
+      selector: (row) => row.role,
       sortable: true,
     },
   ];
 
+
   useEffect(() => {
-    
-    fetch(BASE_URL)
+    fetch(GET_ALL_USER)
       .then((res) => res.json())
       .then((data) => {
-        let sortedProduct = data.sort((a, b) => b.id - a.id);
+        let sortedUsers = data.sort((a, b) => b.id - a.id);
         let filteredProduct = data.filter((p) =>
-          p.category.name.toLowerCase() === "furniture" &&
-          p.title.toLowerCase().includes(filteredText.toLowerCase())
+        p.email.toLowerCase().includes(filteredText.toLowerCase())
         );
-        setProducts(filteredProduct, sortedProduct);
+        setUsers(filteredProduct,sortedUsers);
         setLoading(false);
       })
       .catch((error) => console.log('Error is: ', error));
-  }, [
-    filteredText,setShowAddProductModal
+  },
+   
+  [
+    filteredText, showAddUserModal  
   ]);
+  
 
-  const handleUpdateClick = (productId) => {
-    // Set the selected product for update
-    setSelectedProduct(products.find((product) => product.id === productId));
-    setShowAddProductModal(true);
+  const handleUpdateUser = (updatedUser) => {
+    setUpdateUser(updatedUser);
+    setShowAddUserModal(true);
   };
 
-  const handleProductUpdate = (updatedProduct) => {
-    setupdateProduct(updatedProduct)
-    setShowAddProductModal(true);
-
-
-  }
-
   const RowclickHandler = (row) => {
-    setSelectedProduct(row);
-    
-  }
+    setSelectedUser(row);
+    setShowUpdateModal(true);
+    console.log('Selected User:', row);
+  };
 
   const closeModal = () => {
-    setSelectedProduct(null);
-  }
-
+    setSelectedUser(null);
+  };
 
   const handleStateChange = (deletedProductId) => {
-    // Update the state to reflect the deletion
-    setProducts(prevProducts => prevProducts.filter(product => product.id !== deletedProductId));
-  }
-
+    setUsers((prevProducts) => prevProducts.filter((product) => product.id !== deletedProductId));
+  };
 
   return (
     <>
       {loading && (
         <div className="d-flex justify-content-center align-items-center" style={{ height: "49vh" }}>
           <button className="btn btn-success" type="button" disabled>
-            <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
             Loading...
           </button>
         </div>
@@ -133,11 +121,11 @@ const ProductDashBoard = () => {
                     <button
                       className='btn btn-success'
                       onClick={() => {
-                        setShowAddProductModal(true)
-                        setupdateProduct(null)
-                      }} 
+                        setShowAddUserModal(true);
+                        setUpdateUser(null);
+                      }}
                     >
-                      Add Product
+                      Create User
                     </button>
 
                     <input
@@ -146,10 +134,9 @@ const ProductDashBoard = () => {
                       name='search'
                       placeholder='Search by title...'
                     />
-
                   </div>
                 }
-                data={products}
+                data={users}
                 onRowClicked={RowclickHandler}
               />
             </div>
@@ -157,32 +144,27 @@ const ProductDashBoard = () => {
         </div>
       )}
 
-      <AddProductModal
-      updatedProduct={updatedProduct}
-      showProduct={showAddProductModal}
-      handleCloseProductForm={() => setShowAddProductModal(false)}
-      // isUpdate={!!selectedProduct} // Pass isUpdate based on whether selectedProduct exists
+      <UserModal
+        updatedUser={updatedUser}
+        showUser={showAddUserModal}
+        handleCloseUserForm={() => setShowAddUserModal(false)}
       />
 
-
-      {/* Preview Product Modal */}
-      <Modal show={isCardVisible && !!selectedProduct} onHide={closeModal}>
+      <Modal show={isCardVisible && !!selectedUser} onHide={closeModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Product Details</Modal.Title>
+          <Modal.Title>User Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-           <PreviewCardInfo
-            product={selectedProduct}
+          <UserPreviewCard
+            user={selectedUser}
             onDelete={handleStateChange}
-            onUpdate={handleProductUpdate}
+            onUpdate={handleUpdateUser}
             onClick={closeModal}
           />
-
         </Modal.Body>
       </Modal>
-
     </>
   );
 };
 
-export default ProductDashBoard;
+export default UserDashBoard;  
