@@ -1,0 +1,55 @@
+#signin-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+ #signin-container .signin-image {
+    background-image: url('https://source.unsplash.com/random');
+    background-size: cover;
+    flex: 1;
+  }
+  
+  #signin-container.signin-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  #signin-container .avatar {
+    margin-bottom: 1rem;
+  }
+  
+  #signin-container .avatar img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  #signin-container form {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  #signin-containerlabel {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  #signin-container input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  #signin-container button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2196F3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  

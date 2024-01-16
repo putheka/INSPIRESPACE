@@ -282,7 +282,7 @@ const UserModal = ({ updatedUser, showUser, handleCloseUserForm }) => {
           Close
         </Button>
         <Button
-          variant="primary"
+          variant="primary" 
           onClick={handleCreateOrUpdateUser}
           disabled={isLoading}
         >

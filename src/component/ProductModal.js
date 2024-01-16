@@ -157,6 +157,7 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
             className="img-fluid img-thumbnail"
             style={{ maxWidth: '100%', height: 'auto', maxHeight: '300px' }}
             src={selectedImage}
+            onError={(e) => { e.target.src = "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg?size=626&ext=jpg&ga=GA1.1.1587386060.1703438607&semt=ais" }}
             alt="Product Preview"
           />
           <div className="upload-icon">
