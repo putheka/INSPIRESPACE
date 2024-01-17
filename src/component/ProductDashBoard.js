@@ -114,7 +114,7 @@ const ProductDashBoard = () => {
 
       {!loading && (
         <div className='container mt-5'>
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex  justify-content-between'>
             <div className='data-table col-12'>
               <DataTable
                 className='table table-striped table-hover w-100'

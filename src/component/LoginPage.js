@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -55,19 +56,7 @@ const LoginPage = ({ onLogin, onLogout }) => {
     }
   };
 
-  const handleLogout = () => {
-    // Perform any additional logout logic
-    onLogout();
-
-    // Display a logout alert
-    toast.info('Logout successful!', {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-    });
-  };
+ 
 
   return (
     <div className=" container mb-5 mt-5 w-50 ">
@@ -96,12 +85,12 @@ const LoginPage = ({ onLogin, onLogout }) => {
         />
       </div>
       <div className="d-grid">
-        <button type="button" className="btn btn-primary" onClick={handleLogin}>
+        <button type="button" className="btn btn-success" onClick={handleLogin}>
           Login
         </button>
-        <button type="button" className="btn btn-danger mt-2" onClick={handleLogout}>
-          Logout
-        </button>
+        <NavLink type="button" className="btn btn-warning mt-2" to="/singup">
+          Don't have ? Account Sing Up Now
+        </NavLink>
       </div>
       <ToastContainer />
     </div>

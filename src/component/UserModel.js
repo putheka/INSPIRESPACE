@@ -37,59 +37,6 @@ const UserModal = ({ updatedUser, showUser, handleCloseUserForm }) => {
   const handleUserClose = () => {
     handleCloseUserForm();
   };
-
-  // const handleCreateOrUpdateUser = async () => {
-  //   setIsLoading(true);
-
-  //   try {
-  //     let avatarUrl = updatedUser?.avatar || '';
-
-  //     if (avatar) {
-  //       const fileData = new FormData();
-  //       fileData.append('file', avatar);
-
-  //       const uploadResponse = await UPLOAD_FILE(fileData);
-  //       avatarUrl = uploadResponse.location;
-  //     }
-
-  //     const userData = { 
-  //       email,
-  //       name,
-  //       password,
-  //       role,
-  //       avatar: avatarUrl };
-
-  //     if (updatedUser) {
-  //       await UPDATE_USER_BY_ID(updatedUser.id, userData);
-  //       toast.success('Updated User Successfully!');
-  //     } else {
-  //       await CREATE_USER(userData);
-  //       toast.success('Created User Successfully!');
-  //     }
-  //     setIsLoading(false);
-  //     handleCloseUserForm();
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     toast.error('Operation failed!');
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-
-  //   if (file) {
-  //     const reader = new FileReader();
-
-  //     reader.onloadend = () => {
-  //       setAvatar(file);
-  //       setPreviewImage(reader.result);
-  //     };
-
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
@@ -251,15 +198,6 @@ const UserModal = ({ updatedUser, showUser, handleCloseUserForm }) => {
                 />
               </Form.Group>
 
-              {/* <Form.Group className="mb-3" controlId="formRole">
-                <Form.Label>Role</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter role"
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
-                />
-              </Form.Group> */}
               <Form.Group className="mb-3" controlId="formRole">
                 <Form.Label>Role</Form.Label>
                 <Form.Control

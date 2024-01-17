@@ -16,6 +16,7 @@ import ProductDash from "./component/ProductDashBoard";
 import UserDashBoard from "./component/UserDashBoard";
 import NotFoundpage from "./page/NotFoundpage"
 import LoginPage from "./component/LoginPage";
+import SignUp from "./component/SignUp";
 import { ToastContainer } from "react-toastify";
 import JsonData from "./data/data.json";
 
@@ -71,6 +72,7 @@ const App = () => {
           </>
         ) : null}
         <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+        <Route path="/singup" element={<SignUp />} />
         <Route path="*" element={<NotFoundpage />} />
       </Routes>
       <Footer />
