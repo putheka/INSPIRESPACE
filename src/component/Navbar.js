@@ -80,7 +80,7 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
             ) : null}
           </Nav>
 
-          <NavDropdown title="Language" id="basic-nav-dropdown" className="ms-2">
+          <NavDropdown title="Language" id="basic-nav-dropdown" className="ms-2 me-3">
             {lngs.map((lng) => (
               <NavDropdown.Item
                 key={lng.code}
@@ -89,7 +89,7 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
                 <img
                   src={lng.flagUrl}
                   alt={lng.nativeName}
-                  style={{ width: '20px', marginRight: '5px' }}
+                  style={{ width: '30px', marginRight: '5px' }}
                 />
                 {lng.nativeName}
               </NavDropdown.Item>
