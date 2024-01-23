@@ -1,31 +1,49 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@100..900&display=swap');
 
 #features {
     background: #f6f6f6;
-    height: 50vh;
-  }
-  #features h2{
-    margin-top: 0px;
-    text-align: center;
+    padding: 40px 0;
+}
 
-  }
-  #features img{
-    width: 100px;
-    height: 50px;
-  }
-  
-  #features.container {
+#features h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#features .img-fluid {
+    width: 50%;
+    height: auto;
+}
+
+#features .container {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-  }
-  #features.row {
+}
+
+#features .row {
     margin-right: -15px;
     margin-left: -15px;
     margin-top: 20px;
-  }
-  .parter-text{
-    font-family: 'Concert One', sans-serif;
-  }
+}
+
+#features .col-xs-12,
+#features .col-sm-6,
+#features .col-md-3 {
+    padding: 15px;
+}
+
+.parter-text {
+    font-family: "Noto Sans Khmer", sans-serif;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    #features .col-xs-12,
+    #features .col-sm-6,
+    #features .col-md-3 {
+        margin-bottom: 20px;
+    }
+}

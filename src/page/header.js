@@ -1,8 +1,11 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import "../style/header.css";
+import { useTranslation } from "react-i18next";
 
-const Header = (props) => {
+const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <header id="header">
       <div className="intro">
@@ -10,14 +13,13 @@ const Header = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
-                <h1>
-                  <span>Make</span> Your Comfort Is Our<span> Happiness</span>
-                </h1>
-
-                <p>Welcome to FURNITURE, where joy meets design. Elevate your space with our curated furniture collection, crafted to bring happiness and style into your home.</p>
+                <h1 dangerouslySetInnerHTML={{ __html: t("welcome.text") }} />
+                <p>
+                {t("welcome.p")}
+                </p>
 
                 <Button variant="success" as="a" href="#features" className="logo-button">
-                  Discover More About Us
+                 {t("welcome.button")}
                 </Button>
               </div>
             </div>

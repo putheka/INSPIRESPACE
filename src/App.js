@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useState, useEffect } from "react";
+
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import NavBar from './component/Navbar';
 import Footer from './component/Footer';

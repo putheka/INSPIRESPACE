@@ -3,6 +3,9 @@
 #team {
     padding: 100px 0;
   }
+#team h2 , p {
+  font-family: "Noto Sans Khmer", sans-serif;
+}
   #team h4 {
     margin: 5px 0;
   }

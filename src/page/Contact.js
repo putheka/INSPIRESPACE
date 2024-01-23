@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import "../style/contact.css";
 import emailjs from "@emailjs/browser";
-
+import { useTranslation } from "react-i18next";
 const initialState = {
   name: "",
   email: "",
@@ -40,6 +40,7 @@ const Contact = (props) => {
       );
   };
 
+  const { t } = useTranslation();
   return (
     <div>
       <div id="contact" className="text-center">
@@ -47,10 +48,9 @@ const Contact = (props) => {
           <div className="col-md-8 col-md-offset-2 mx-auto">
             <div className="row">
               <div className="section-title">
-                <h2>Get In Touch</h2>
+                <h2>{t("contact.h2")}</h2>
                 <p>
-                  Please fill out the form below to send us an email, and we
-                  will get back to you as soon as possible.
+                  {t("contact.p")}  
                 </p>
               </div>
               <form

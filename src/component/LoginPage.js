@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
 import { Link, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -59,7 +60,7 @@ const LoginPage = ({ onLogin, onLogout }) => {
  
 
   return (
-    <div className=" container mb-5 mt-5 w-50 ">
+    <Container className=" container mb-5 mt-5 w-50 ">
       <div className="mb-3 ">
         <label htmlFor="email" className="form-label">
           Email:
@@ -93,7 +94,7 @@ const LoginPage = ({ onLogin, onLogout }) => {
         </NavLink>
       </div>
       <ToastContainer />
-    </div>
+    </Container>
   );
 };
 
