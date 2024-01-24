@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useState, useEffect } from "react";
-
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import NavBar from './component/Navbar';
 import Footer from './component/Footer';
@@ -12,6 +11,7 @@ import About from "./page/aboutus";
 import Comment from "./page/comment";
 import Team from "./page/Team";
 import Contact from "./page/Contact";
+import ProductDetails from "./page/ProductDetails";
 import UserProduct from "./page/UserProduct";
 import ProductDash from "./component/ProductDashBoard";
 import UserDashBoard from "./component/UserDashBoard";
@@ -55,6 +55,7 @@ const App = () => {
           element={<HomePage landingPageData={landingPageData} />}
         />
         <Route path="/UserProduct" element={<UserProduct />} />
+        <Route path="/product-details/:id" element={<ProductDetails />} />
         {isLoggedIn ? (
           <>
             <Route

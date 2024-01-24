@@ -99,7 +99,7 @@ const LoginPage = ({ onLogin }) => {
            ariaLabel="three-circles-loading"
            wrapperClass=""/>: 'Login'}
         </button>
-        <NavLink type="button" className="btn btn-warning mt-2" to="/signup">
+        <NavLink type="button" className="btn btn-warning mt-2" to="/singup">
           Don't have an account? Sign Up Now
         </NavLink>
       </div>

@@ -13,7 +13,7 @@ const ProductDashBoard = () => {
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCardVisible, setIsCardVisible] = useState(true);
-  // const [showUpdateModal, setShowUpdateModal] = useState(false);
+  
 
   const columns = [
     {
@@ -72,10 +72,6 @@ const ProductDashBoard = () => {
     filteredText,setShowAddProductModal
   ]);
 
-  // const handleUpdateClick = (productId) => {
-  //   setSelectedProduct(products.find((product) => product.id === productId));
-  //   setShowAddProductModal(true);
-  // };
 
   const handleProductUpdate = (updatedProduct) => {
     setupdateProduct(updatedProduct)

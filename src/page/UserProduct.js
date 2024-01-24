@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactPaginate from 'react-paginate';
-import BASE_URL from "../BASE_URL";
+import GET_ALL_PRODUCTS from "../services/productService";
 import ProductCard from "../component/ProductCards";
 import PlaceholderCard from "../component/placeholdercard";
 import Carousel from 'react-bootstrap/Carousel';
@@ -21,7 +21,7 @@ const UserProduct = () => {
   }, []);
 
   function fetchData() {
-    fetch(BASE_URL)
+    fetch(GET_ALL_PRODUCTS)
       .then((res) => res.json())
       .then((data) => {
         let sortedProduct = data.sort((a, b) => b.id - a.id);
@@ -47,11 +47,9 @@ const UserProduct = () => {
     return placeholders;
   };
 
-
-
   return (
     <>
-      {/* <h1 className="text-center my-5">INSPIRESPACE PRODUCT</h1> */}
+  
       <div className="container">
         <div className="row">
           {isLoading ? (
@@ -109,7 +107,8 @@ const UserProduct = () => {
                         price={product.price}
                         id={product.id}
                         description={product.description}
-                      />
+                        >
+                        </ProductCard>
                     </div>
                   ))}
                 </>
@@ -120,7 +119,7 @@ const UserProduct = () => {
       </div>
 
       {data.length > PER_PAGE && (
-        <div className="pagination-container">
+        <div className="pagination-container mb-5">
           <ReactPaginate
             previousLabel={"previous"}
             nextLabel={"next"}

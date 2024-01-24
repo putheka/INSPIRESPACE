@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Delete_Product } from '../BASE_URL';
+import { DELETE_PRODUCT_BY_ID } from '../services/productService';
 import { toast } from 'react-toastify'
 import { ThreeCircles } from 'react-loader-spinner'
 
@@ -21,7 +21,7 @@ const PreviewCardInfo = ({ onDelete, product, onUpdate ,onClick }) => {
   const handleDelete = () => {
     setisLoading(true);
   
-    Delete_Product(product.id)  
+    DELETE_PRODUCT_BY_ID(product.id)  
       .then(response => {
         toast.success("Delete successfully");
         onDelete(product.id);

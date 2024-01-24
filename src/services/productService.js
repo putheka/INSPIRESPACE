@@ -6,6 +6,11 @@ export const GET_ALL_PRODUCTS = async () => {
     return response.data;
 }
 
+export const GET_PRODUCT_BY_ID = async (id) => {
+    const response = await api.get(`products/${id}`)
+    return response.data
+}
+
 const BASE_URL = "https://api.escuelajs.co/api/v1/products"
 export default BASE_URL
 
