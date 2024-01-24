@@ -28,26 +28,21 @@ const App = () => {
 
   useEffect(() => {
     setLandingPageData(JsonData);
-    // Check for saved authentication status when the component mounts
     const savedToken = localStorage.getItem('authToken');
     if (savedToken) {
       setIsLoggedIn(true);
-      // Fetch user data using the token (you need to implement this)
-      // setUserData(fetchUserData(savedToken));
     }
   }, []);
 
   const handleLogin = (user) => {
     setIsLoggedIn(true);
     setUserData(user);
-    // Store the authentication token in localStorage
     localStorage.setItem('authToken', user.token);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserData(null);
-    // Clear the authentication token from localStorage
     localStorage.removeItem('authToken');
   };
 

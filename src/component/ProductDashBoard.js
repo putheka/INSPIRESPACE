@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
-import BASE_URL from '../BASE_URL';
+import BASE_URL from '../services/productService';
 import PreviewCardInfo from "../component/PreviewCardInfo";
 import AddProductModal from "../component/ProductModal";
 import { Modal } from 'react-bootstrap';
@@ -13,7 +13,7 @@ const ProductDashBoard = () => {
   const [showAddProductModal, setShowAddProductModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCardVisible, setIsCardVisible] = useState(true);
-  const [showUpdateModal, setShowUpdateModal] = useState(false);
+  // const [showUpdateModal, setShowUpdateModal] = useState(false);
 
   const columns = [
     {
@@ -72,11 +72,10 @@ const ProductDashBoard = () => {
     filteredText,setShowAddProductModal
   ]);
 
-  const handleUpdateClick = (productId) => {
-    // Set the selected product for update
-    setSelectedProduct(products.find((product) => product.id === productId));
-    setShowAddProductModal(true);
-  };
+  // const handleUpdateClick = (productId) => {
+  //   setSelectedProduct(products.find((product) => product.id === productId));
+  //   setShowAddProductModal(true);
+  // };
 
   const handleProductUpdate = (updatedProduct) => {
     setupdateProduct(updatedProduct)
@@ -96,7 +95,6 @@ const ProductDashBoard = () => {
 
 
   const handleStateChange = (deletedProductId) => {
-    // Update the state to reflect the deletion
     setProducts(prevProducts => prevProducts.filter(product => product.id !== deletedProductId));
   }
 
@@ -161,11 +159,9 @@ const ProductDashBoard = () => {
       updatedProduct={updatedProduct}
       showProduct={showAddProductModal}
       handleCloseProductForm={() => setShowAddProductModal(false)}
-      // isUpdate={!!selectedProduct} // Pass isUpdate based on whether selectedProduct exists
+     
       />
 
-
-      {/* Preview Product Modal */}
       <Modal show={isCardVisible && !!selectedProduct} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>Product Details</Modal.Title>

@@ -6,6 +6,9 @@ export const GET_ALL_PRODUCTS = async () => {
     return response.data;
 }
 
+const BASE_URL = "https://api.escuelajs.co/api/v1/products"
+export default BASE_URL
+
 export const UPLOAD_FILE = async (file) => {
     const response = await api.post("files/upload", file);
     return response.data;

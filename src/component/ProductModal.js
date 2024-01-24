@@ -51,7 +51,6 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
     };
 
     if (updatedProduct) {
-      // Handle update logic
       if (selectedFile) {
         const fileData = new FormData();
         fileData.append('file', selectedFile);
@@ -91,7 +90,6 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
           });
       }
     } else {
-      // Handle create logic
       if (selectedFile) {
         const fileData = new FormData();
         fileData.append('file', selectedFile);
@@ -118,7 +116,6 @@ const AddProductModal = ({ updatedProduct, showProduct, handleCloseProductForm, 
             setIsLoading(false);
           });
       } else {
-        // No file selected
         CREATE_PRODUCT(productData)
           .then(() => {
             toast.success('Created Product Successfully!');

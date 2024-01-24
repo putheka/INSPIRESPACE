@@ -52,8 +52,6 @@ const SignUp = () => {
           return;
         }
       }
-
-      // Register the user with the uploaded avatar URL
       const userData = {
         name,
         email,
@@ -72,7 +70,6 @@ const SignUp = () => {
       if (response.ok) {
         toast.success('User registered successfully!');
         setIsLoading(false);
-        // Optionally, you can redirect the user to the login page or handle it based on your app flow.
       } else {
         console.error('Failed to register user');
         toast.error('Failed to register user. Please try again.');
@@ -157,7 +154,12 @@ const SignUp = () => {
                       Back to Login
                     </NavLink>
 
-                    <Button variant="success" type="button" onClick={handleSignUp} className="w-100 mt-3">
+                    <Button
+                      variant="success"
+                      type="button"
+                      onClick={handleSignUp}
+                      className="w-100 mt-3 d-flex align-items-center justify-content-center"
+                    >
                       {isLoading ? (
                         <ThreeCircles
                           visible={true}
@@ -171,6 +173,7 @@ const SignUp = () => {
                         'Sign Up'
                       )}
                     </Button>
+
                   </div>
                 </Form>
               </div>

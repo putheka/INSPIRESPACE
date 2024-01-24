@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThreeCircles } from 'react-loader-spinner'
 
-const LoginPage = ({ onLogin, onLogout }) => {
+const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     try {
-      // Simulate a login API call
+      setLoading(true);
+      // a login API call
       const response = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
         method: 'POST',
         headers: {
@@ -54,14 +57,14 @@ const LoginPage = ({ onLogin, onLogout }) => {
         closeOnClick: true,
         pauseOnHover: true,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
- 
-
   return (
-    <Container className=" container mb-5 mt-5 w-50 ">
-      <div className="mb-3 ">
+    <Container className="container mb-5 mt-5 w-50">
+      <div className="mb-3">
         <label htmlFor="email" className="form-label">
           Email:
         </label>
@@ -86,11 +89,18 @@ const LoginPage = ({ onLogin, onLogout }) => {
         />
       </div>
       <div className="d-grid">
-        <button type="button" className="btn btn-success" onClick={handleLogin}>
-          Login
+        <button type="button" className="btn btn-success d-flex align-items-center justify-content-center" onClick={handleLogin} disabled={loading}>
+          {loading ?
+           <ThreeCircles
+           visible={true}
+           height="25"
+           width="50"
+           color="#4fa94d"
+           ariaLabel="three-circles-loading"
+           wrapperClass=""/>: 'Login'}
         </button>
-        <NavLink type="button" className="btn btn-warning mt-2" to="/singup">
-          Don't have ? Account Sing Up Now
+        <NavLink type="button" className="btn btn-warning mt-2" to="/signup">
+          Don't have an account? Sign Up Now
         </NavLink>
       </div>
       <ToastContainer />

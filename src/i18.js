@@ -57,6 +57,12 @@ i18n
           contact:{
             h2:"Get In Touch",
             p:"Please fill out the form below to send us an email, and we will get back to you as soon as possible"
+          },
+          navbar:{
+            home:"Home",
+            products:"Products",
+            dashboard:"Dashboard",
+            User_Dashboard:"User Dashboard"
           }
           
         }
@@ -108,7 +114,14 @@ i18n
           contact:{
             h2:"ទាក់ទង",
             p:"សូមបំពេញទម្រង់ខាងក្រោម ដើម្បីផ្ញើអ៊ីមែលមកយើង ហើយយើងនឹងឆ្លើយតបទៅអ្នកវិញឱ្យបានឆាប់តាមដែលអាចធ្វើទៅបាន។"
+          },
+          navbar:{
+            home:"ផ្ទះ",
+            products:"ផលិតផល",
+            dashboard:"ផ្ទាំងគ្រប់គ្រង",
+            User_Dashboard:"ផ្ទាំងគ្រប់គ្រងអ្នកប្រើប្រាស់"
           }
+          
           
         }
       },
@@ -158,6 +171,13 @@ i18n
           contact:{
             h2:"연락하다",
             p:"아래 양식을 작성하여 이메일을 보내주시면 최대한 빨리 연락드리겠습니다."
+          },
+          navbar:{
+            home:"집",
+            products:"제품",
+            dashboard:"계기반",
+            User_Dashboard:"사용자 대시보드"
+
           }
          
 
