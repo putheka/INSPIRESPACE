@@ -43,7 +43,7 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json', // Add this line
+          'Content-Type': 'application/json', 
         },
       });
 

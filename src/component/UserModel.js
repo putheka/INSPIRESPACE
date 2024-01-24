@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { ThreeCircles } from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import { CREATE_USER, UPDATE_USER_BY_ID, UPLOAD_FILE } from '../services/UserService';

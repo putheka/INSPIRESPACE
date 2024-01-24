@@ -19,7 +19,7 @@ import NotFoundpage from "./page/NotFoundpage"
 import LoginPage from "./component/LoginPage";
 import SignUp from "./component/SignUp";
 import { ToastContainer } from "react-toastify";
-import JsonData from "./data/data.json";
+// import JsonData from "./data/data.json";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,7 +27,7 @@ const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
 
   useEffect(() => {
-    setLandingPageData(JsonData);
+    // setLandingPageData(JsonData);
     const savedToken = localStorage.getItem('authToken');
     if (savedToken) {
       setIsLoggedIn(true);

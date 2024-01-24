@@ -25,8 +25,8 @@ const PreviewCardInfo = ({ onDelete, product, onUpdate ,onClick }) => {
       .then(response => {
         toast.success("Delete successfully");
         onDelete(product.id);
-        setisLoading(false);   // This line should not cause a refresh
-        setIsCardVisible(null);// Set visibility to false after successful delete
+        setisLoading(false);   
+        setIsCardVisible(null);
       })
       .catch(error => {
         toast.error("Failed to Delete !! ")
@@ -36,7 +36,7 @@ const PreviewCardInfo = ({ onDelete, product, onUpdate ,onClick }) => {
   }
   
 
-  // Check if product is undefined or not selected
+  
   if (!product || !product.images || product.images.length === 0) {
     // Display default style with placeholder image
     return (
